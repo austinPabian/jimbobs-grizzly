@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<meta charset="utf-8">
+	<title>Jimbob's Grizzly Beard Care</title>
+    <meta name="description" content="THE GRIZZLIEST BEARD CARE PRODUCTS FOR THE MANLIEST MEN!" />
+    <meta property="og:title" content="JimBob's Grizzly Beard Care" />
+    <meta property="og:image" content="http://jimbobsgrizzlybeardcare.com/_include/img/showcase.jpg"/>
+    <meta property="og:image:secure_url" content="https://jimbobsgrizzlybeardcare.com/_include/img/showcase.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:description" content="THE GRIZZLIEST BEARD CARE PRODUCTS FOR THE MANLIEST MEN!" />
+    <meta property="og:url" content="http://jimbobsgrizzlybeardcare.com/" />
+    
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="width=device-width" name="viewport">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+    
+	<link href="_include/img/favicon.png" rel="icon" type="image/jpg">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script%7CLato:300,400,700" rel="stylesheet">
+	<link href="_include/css/bootstrap-dark.css" rel="stylesheet">
+	<link id="pagestyle" href="_include/css/theme-dark.css" rel="stylesheet">
+    <link rel="stylesheet" href="_include/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body data-offset="50" data-spy="scroll" data-target=".navbar" class="dark-theme">
+	<nav class="navbar navbar-fixed-top shadow" id="js-nav">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				
+				<a class="navbar-brand" href="#"> <img src="_include/img/JGBC-Half-Mark.png" alt="logo"> </a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="#home">home</a></li>
+                    <li><a href="#about">who we are</a></li>
+                    <li><a href="#products">the goods</a></li>
+					<li><a href="#contact">contact us</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<section class="home section image-slider" id="home">
+		<div class="home-slider text-center">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide parallax-head">
+					<img class="home-logo text-center wow fadeInUp" src="_include/img/logo-white_full.png" alt="store logo" data-wow-delay="0.2s" style="max-height:500px">
+					<div class="home-buttons text-center"> <a href="#products" class="btn btn-lg  btn-primary nav navbar-nav wow fadeInDown" data-wow-delay="0.2s">our products</a> </div>
+					<a class="arrow bounce text-center" href="#products"> <span class="ti-mouse"></span> <span class="ti-angle-double-down"></span> </a>
+				</div>
+
+				<div class="swiper-slide" style="background: url(_include/img/slider/slide1.jpg);">
+					<img src="_include/img/logo-white_full.png" style="max-height:500px" alt="store logo">
+					<div class="home-buttons text-center"> <a href="#products" class="btn btn-lg  btn-primary">Get Some</a> </div>
+					<a class="arrow bounce text-center" href="#about"> <span class="ti-mouse"></span> <span class="ti-angle-double-down"></span> </a>
+				</div>
+
+			</div>
+            <!-- / ACTIVATE FOR PAGINATION
+			<div class="home-pagination"></div>
+			<div class="home-slider-next right-arrow-negative"> <span class="ti-angle-right"></span> </div>
+			<div class="home-slider-prev left-arrow-negative"> <span class="ti-angle-left"></span> </div> -->
+		</div>
+	</section>
+
+	<!-- INTERAVTIVE CART ITEM COUNTER -->
+	<span id="items-counter" class="cart-items-counter" style="display: none">0</span>
+	<!-- / INTERAVTIVE CART ITEM COUNTER -->
+
+	<!-- CART WIDGET -->
+	<div class="cart-widget-container">
+		<div class="cart-widget text-center">
+			<a class="close" id="cart-widget-close">
+				<span class="ti-close"></span>
+			</a>
+
+			<img class="cart-logo" src="_include/img/JGBC-Half-Mark.png" width="200" alt="store logo">
+			<h3 class="section-heading">Your Cart</h3>
+			<!-- EMPTY CART MESSAGE -->
+			<div id="cart-empty" class="cart-empty">
+				<h3>is lookin' a little sad <span class="ti-face-sad icon"></span></h3>
+			</div>
+			<!-- / EMPTY CART MESSAGE -->
+
+			<!-- CONTAINER FOR JS INJECT CART ITEMS, DON'T CHANGE ID AND CLASS -->
+			<div class="items-container" id="items"></div>
+			<!-- / CONTAINER FOR JS INJECT CART ITEMS, DON'T CHANGE ID AND CLASS -->
+
+			<!-- CART DELIVERY OPTIONS -->
+			<div class="cart-delivery" id="cart-delivery">
+				<h4 class="section-heading">Shipping Option</h4>
+				<div class="custom-radio">
+					<input id="radio1" type="radio" name="delivery" value="5.00" checked> 
+					<label for="radio1">Standard USPS ($5)</label>
+				</div>
+
+                <!-- CART DELIVERY OPTION 2
+				<div class="custom-radio">
+					<input id="radio2" type="radio" name="delivery" value="10.00"> 
+					<label for="radio2">Express Domestic ($10) </label>
+				</div>
+                -->
+
+			</div>
+			<!-- / CART DELIVERY OPTIONS -->
+
+			<!-- CART SUMMARY CALCULATION -->
+			<div class="cart-summary" id="cart-summary">
+			<h4 class="section-heading">Summary</h4>
+               
+				<div class="cart-summary-row" id="cart-total">Product(s) Total <span class="cart-value">$<span id="cost_value">0.00</span></span></div>
+				<div class="cart-summary-row">Shipping <span class="cart-value">$<span id="cost_delivery"></span></span></div>
+				<div class="cart-summary-row cart-summary-row-total">Total <span class="cart-value">$<span id="total-total"></span></span></div>
+                
+			</div>
+			<!-- / CART SUMMARY CALCULATION -->
+            
+            
+			<!-- HIDDEN PAYPAL FORM -->
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="cart-form" id="cart-form">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="upload" value="1">
+            <input type="hidden" name="business" value="jimbobsgrizzlybeardcare@gmail.com">
+            <input type="hidden" name="item_name" id="items" value="">
+            <input type="hidden" name="amount" id="amount" value="">
+            <input type="hidden" name="currency_code" value="USD">
+            <!-- Display the payment button. -->
+                <p>***As a temporary measure, please remember what you bought and enter the name of the product in the checkout! We're fixing this as soon as possible.</p>
+            <input type="submit" name="submit" value="PAYPAL CHECKOUT">
+               
+				
+            </form>				
+		</div>
+		<div class="cart-widget-close-overlay"></div>
+	</div>
+	<!-- / CART WIDGET -->
+
+    
+     <section class="container-fluid about white-color no-padding" id="about">
+    <div class="about-background-2 about-background-2 row no-margin">
+        <div class="col-md-6 about-white-box">
+        	<h3 class="section-heading">From Humble Beginnings</h3>
+        	<p>Jimbob's Grizzly Beard Care was and still is founded on a premise of providing the most authenic products available for a man's beard. We've found that there are too many products on shelves and in stores online that just don't seem to stand up to the standard of what good beard care is. For that reason, we decided to make our own. I was always told as a kid, "if you're going to do something, do it right the first time", and that sticks true today. The only thing worse than wasting time and money on something that doesn't do the best job it possibly can, is wasting that product on your precious facial hair; and trust us, we know all about taking care of our beards.</p>
+        </div>
+        <div class="col-md-6"><img src="_include/img/work-with-text.png" class="showcase-img wow fadeInUp" data-wow-delay="0.2s"></div>
+    </div>
+  
+  </section>
+    
+	<section class="container-fluid about white-color no-padding" id="about">
+    <div class="about-background-2 row no-margin parallax-mid">
+        <div class="col-md-6 about-black-box">
+        	<h3 class="section-heading">How Hard Work Pays Off</h3>
+        	<p style="text-shadow: 1px 1px 5px #000000">Valiantly led by the man himself: James "Jimbob" Beaubien, Jimbob's Grizzly Beard Care is a hand-made and hand-packaged business. Starting from nothing more than a want for quality beard care, we've spent countless hours thinking over what oils to use, brandstorming, face-to-face marketing, and doing everything in our power to spread the word that a superior product has been born. 100% U.S. Veteran owned and operated, all of what we make is hand-crafted from responsibly imported bases and sent to your door from Lansing, Michigan.
+            </p>
+
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+  
+  </section>
+    
+    <!-- OILS -->
+    
+	<section class="section-min section product" id="products" style="padding-bottom: 0!important">
+		<div class="container overflow-hidden">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-heading swiper-slide wow fadeInUp text-center" data-wow-delay=".2s">Our Manliest Oils</h3>
+				</div>
+				<div class="col-md-12">
+					<div class="product-list-slider">
+						<ul class="swiper-wrapper product-list product-list-vertical">
+                            
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".2s"> 
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#product-01" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/product.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/product-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#product-01" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Original Grizz</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a> 
+<button type="button" class="btn btn-default add-item" data-image="_include/img/product2.jpg" data-name="Original Grizz Oil" data-cost="15.00" data-id="3" ><input type="hidden" name="item_name" value="Original Grizz Oil">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 		
+							</li>
+							<!-- / SINGLE ITEM -->
+							
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".4s"> 
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#product-02" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/product4.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/product4-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#product-02" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Country Boy</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a>
+
+								<button type="button" class="btn btn-default add-item" data-image="_include/img/product4.jpg" data-name="Country Boy Oil" data-cost="15.00" data-id="2" ><input type="hidden" name="item_name" value="Country Boy Oil">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 	
+							</li>
+							<!-- / SINGLE ITEM -->
+
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".6s"> 
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#product-03" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/product2.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/product2-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#product-03" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Workin' Man</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a> 
+
+								<button type="button" class="btn btn-default add-item" data-image="_include/img/product2.jpg" data-name="Workin' Man Oil" data-cost="15.00" data-id="3" ><input type="hidden" name="item_name" value="Workin' Man Oil">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 		
+							</li>
+							<!-- / SINGLE ITEM -->
+							
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".8s"> 
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#product-04" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/product5.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/product5-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#product-04" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Night Hawk</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a>
+
+								<button type="button" class="btn btn-default add-item" data-image="_include/img/product5.jpg" data-name="Night Hawk Oil" data-cost="15.00" data-id="4" >
+                                    <input type="hidden" name="item_name" value="Night Hawk Oil">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 	
+							</li>
+							<!-- / SINGLE ITEM -->
+
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".8s">  
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#product-05" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/product3.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/product3-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#product-05" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Recon Scout</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a> 
+
+								<button type="button" class="btn btn-default add-item" data-image="_include/img/product3.jpg" data-name="Recon Scout Oil" data-cost="15.00" data-id="5" >
+                                    <input type="hidden" name="item_name" value="Recon Scout Oil">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 		
+							</li>
+							<!-- / SINGLE ITEM -->
+							
+						</ul>
+
+						<!-- CAROUSEL CONTROLS -->
+						<div class="product-list-pagination text-center"></div>
+						<div class="product-list-slider-next right-arrow-negative">
+							<span class="ti-angle-right"></span>
+						</div>
+
+						<div class="product-list-slider-prev left-arrow-negative">
+							<span class="ti-angle-left"></span>
+						</div>
+						<!-- CAROUSEL CONTROLS -->
+					</div>
+				</div>
+			</div>
+			<!-- PRODUCT MODAL 1-->
+			<div class="modal fade product-modal" id="product-01" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/product.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">Where it all began.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">There’s everything timeless
+and admirable about an
+“original”. From the key idea
+to the time spent, the energy
+sacrificed, and the countless
+daydreams along the way,
+there’s nothing that can take
+the glory from seeing the
+first product come alive.
+
+What you have here is one
+man’s dream in physical form.
+This very recipe is what’s been
+known as the Original Grizz,
+                                            or as we call it: the “OG”.</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px">No matter what anyone says, always be original.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Original Grizz</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+Jimbob’s Grizzly Essence&trade; 
+(a masterful blend of coconut,
+apricot, argan, vitamin E, hemp,
+baobab, &amp; jojoba oil), teatree oil,
+cedar oil, pine oil, lemon oil,
+and patchouli oil.</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/product.jpg" data-name="Original Grizz" item_name="Original Grizz" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+            
+            			<!-- PRODUCT MODAL 2-->
+
+			<div class="modal fade product-modal" id="product-02" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/product4.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="img/product4.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product4.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product4.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">Toss out that bug spray.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">Being a country boy doesn’t
+just mean yellin’ ‘yee-haw’
+and wavin’ around guns.
+It means getting down to
+business and taking the
+day head-on to show your
+love to the land.
+
+A long day in the fields
+usually leads to a longer
+night out under the stars,
+so we made this signature
+blend of oils with some
+bug-repelling power built
+right in.
+
+
+</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px">You enjoy the party, we’ll
+make sure no critters come
+to crash it.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Country Boy</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+Jimbob’s Grizzly Essence&trade; 
+(a masterful blend of coconut,
+apricot, argan, vitamin E, hemp,
+baobab &amp; jojoba oil), tea tree, lemon
+oil, patchouli oil, lemongrass oil,
+citronella oil, and bergamot oil.</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/product4.jpg" data-name="Country Boy" item_name="Country Boy" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+            
+            <!-- PRODUCT MODAL 3-->
+
+			<div class="modal fade product-modal" id="product-03" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/product2.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product2.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product2.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product2.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">Stronger than sweat.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">Commanding nature is a
+mastery that can only be
+earned by long days out
+grindin’ with dirt on your
+hands, but even the hardest
+worker needs a break.
+
+That’s why we tossed together
+a signature blend of our
+classic oils alongside the manly
+scents that you can only find
+loggin’ away in the woods to
+keep your brawn alive.
+
+</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px">It’s no wonder why a
+man that runs his life the 
+way he runs the field
+is one to be reckoned with.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Workin' Man</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+Jimbob’s Grizzly Essence&trade; 
+(a masterful blend of coconut,
+apricot, argan, vitamin E, hemp,
+baobab, &amp; jojoba oil), teatree oil,
+lemon oil, patchouli oil, cedar oil,
+pine oil, and peppermint oil.</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/product2.jpg" data-name="Workin' Man" item_name="Workin' Man" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+            
+            <!-- PRODUCT MODAL 4-->
+
+			<div class="modal fade product-modal" id="product-04" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/product5.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product5.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product5.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product5.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">The lighter side of manliness.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">They say that the early bird
+gets the worm, but what about
+the bird that thrives while the
+‘early bird’ sleeps?
+
+We know what it’s like to
+run the night like it were
+day. That’s why we made
+this specific blend tailored
+to the bird of the dark.
+It’s formulated for the same
+quality care, but also
+scented to relax in case
+you turn in early.
+
+</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px"> Run your hours whenever
+you like, just make sure
+to do it right.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Night Hawk</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+Jimbob’s Grizzly Essence&trade; 
+(a masterful blend of coconut,
+apricot, argan, vitamin E, hemp,
+baobab, &amp; jojoba oil), teatree oil,
+lemon oil, patchouli oil, lavender
+oil, and sandalwood oil.</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/product5.jpg" data-name="Night Hawk" item_name="Night Hawk" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+            
+            <!-- PRODUCT MODAL 5-->
+
+			<div class="modal fade product-modal" id="product-05" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/product3.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product3.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product3.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/product3.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">Keep your style under the radar.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">The reconnaissance scout 
+in the field has to be well-practiced and precise in his movements. No matter the path he chooses, swift, silent, and deadly must be his only concentration.
+
+With precision and stealth in mind, we supercharged our dangerously quiet ensemble of oils to make sure that you leave no scent in your wake.
+
+</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px">After all, they say that
+the quietest man in the room
+is often the most lethal.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Recon Scout</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+Jimbob’s Grizzly Essence&trade; 
+(a masterful blend of coconut,
+apricot, argan, vitamin E, hemp,
+baobab, &amp; jojoba oil)</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/product3.jpg" data-name="Recon Scout" item_name="Recon Scout" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+    </div>
+            
+            
+	</section>
+    
+    <!-- BALMS -->
+    
+	<section class="section-min section product" id="products" style="padding-top: 0!important">
+		<div class="container overflow-hidden">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-heading swiper-slide wow fadeInUp text-center" data-wow-delay=".2s">Our Burliest Balms</h3>
+				</div>
+				<div class="col-md-12">
+					<div class="product-list-slider">
+						<ul class="swiper-wrapper product-list product-list-vertical">
+                            
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".2s"> 
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#2product-01" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/2product.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/2product-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#2product-01" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Original Grizz</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a> 
+
+								<button type="button" class="btn btn-default add-item" data-image="_include/img/2product.jpg" data-name="Original Grizz Balm" item_name="Original Grizz" data-cost="15.00" data-id="1" >
+                                    <input type="hidden" name="item_name" value="Original Grizz Balm">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 		
+							</li>
+							<!-- / SINGLE ITEM -->
+							
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".4s"> 
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#2product-02" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/2product4.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/2product4-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#2product-02" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Country Boy</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a>
+
+								<button type="button" class="btn btn-default add-item" data-image="_include/img/2product4.jpg" data-name="Country Boy Balm" data-cost="15.00" data-id="2" ><input type="hidden" name="item_name" value="Country Boy Balm">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 	
+							</li>
+							<!-- / SINGLE ITEM -->
+
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".6s"> 
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#2product-03" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/2product2.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/2product2-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#2product-03" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Workin' Man</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a> 
+
+								<button type="button" class="btn btn-default add-item" data-image="_include/img/2product2.jpg" data-name="Workin' Man Balm" data-cost="15.00" data-id="3" ><input type="hidden" name="item_name" value="Workin' Man Balm">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 		
+							</li>
+							<!-- / SINGLE ITEM -->
+							
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".8s"> 
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#2product-04" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/2product5.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/2product5-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#2product-04" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Night Hawk</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a>
+
+								<button type="button" class="btn btn-default add-item" data-image="_include/img/2product5.jpg" data-name="Night Hawk Balm" data-cost="15.00" data-id="4" >
+                                    <input type="hidden" name="item_name" value="Night Hawk Balm">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 	
+							</li>
+							<!-- / SINGLE ITEM -->
+
+							<!-- SINGLE ITEM -->
+							<li class="swiper-slide wow fadeInDown text-center" data-wow-delay=".8s">  
+								<span class="product-list-left pull-left">
+									<a href="#" data-target="#2product-05" data-toggle="modal">
+										<img alt="product image" class="product-list-primary-img" src="_include/img/2product3.jpg"> 
+										<img alt="product image" class="product-list-secondary-img" src="_include/img/2product3-2.jpg">
+									</a>
+								</span> 
+
+								<a href="#" data-target="#2product-05" data-toggle="modal">
+									<span class="product-list-right pull-left">
+										<span class="product-list-name h3">Recon Scout</span>
+										<span class="product-list-price">$15.00</span>
+									</span>
+								</a> 
+
+								<button type="button" class="btn btn-default add-item" data-image="_include/img/2product3.jpg" data-name="Recon Scout Balm" data-cost="15.00" data-id="5" >
+                                    <input type="hidden" name="item_name" value="Recon Scout Balm">
+									<span class="ti-shopping-cart"></span>add to cart
+								</button> 		
+							</li>
+							<!-- / SINGLE ITEM -->
+							
+						</ul>
+
+						<!-- CAROUSEL CONTROLS -->
+						<div class="product-list-pagination text-center"></div>
+						<div class="product-list-slider-next right-arrow-negative">
+							<span class="ti-angle-right"></span>
+						</div>
+
+						<div class="product-list-slider-prev left-arrow-negative">
+							<span class="ti-angle-left"></span>
+						</div>
+						<!-- CAROUSEL CONTROLS -->
+					</div>
+				</div>
+			</div>
+			<!-- PRODUCT MODAL 1-->
+			<div class="modal fade product-modal" id="2product-01" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/2product.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">The grassroots of our balms.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">There’s everything timeless
+and admirable about an
+“original”. From the key idea
+to the time spent, the energy
+sacrificed, and the countless
+daydreams along the way,
+there’s nothing that can take
+the glory from seeing the
+first product come alive.
+
+What you have here is one
+man’s dream in physical form, and adapted to conquer.
+This very recipe is what’s been
+known as the Original Grizz,
+                                            or as we call it: the “OG”, but this time, it's ready to shape your style; not just sharpen it.</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px">No matter what anyone says, always be original.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Original Grizz</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+Jimbob’s Bearwax&trade; 
+(a masterful blend of pure beeswax, coconut oil,
+shea butter, jojoba oil, baobab oil, &amp; argan oil), cedar oil
+pine oil, tea tree oil, lemon oil, and patchouli oil.</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/2product.jpg" data-name="Original Grizz" item_name="Original Grizz" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+            
+            			<!-- PRODUCT MODAL 2-->
+
+			<div class="modal fade product-modal" id="2product-02" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/2product4.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product4.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product4.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product4.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">Toss out that bug spray.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">Being a country boy doesn’t
+just mean yellin’ ‘yee-haw’
+and wavin’ around guns.
+It means getting down to
+business and taking the
+day head-on to show your
+love to the land.
+
+A long day in the fields
+usually leads to a longer
+night out under the stars,
+so we took our signature
+blend of oils and turned them
+into a balm with some
+bug-repelling power built
+right in.
+
+
+</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px">You enjoy the party, we’ll
+make sure no critters come
+to crash it.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Country Boy</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+
+Jimbob’s Bearwax&trade; 
+(a masterful blend of pure beeswax, coconut oil,
+shea butter, jojoba oil, baobab oil, &amp; argan oil),
+citronella oil, lemongrass oil, tea tree oil, lemon oil,
+patchouli oil, and bergamot oil.</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/2product4.jpg" data-name="Country Boy" item_name="Country Boy" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+            
+            <!-- PRODUCT MODAL 3-->
+
+			<div class="modal fade product-modal" id="2product-03" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/2product2.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product2.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product2.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product2.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">Stronger than sweat, and thicker than honey.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">Commanding nature is a
+mastery that can only be
+earned by long days out
+grindin’ with dirt on your
+hands, but even the hardest
+worker needs a break.
+
+That’s why we tossed our
+signature blend of
+classic oils alongside the manly
+scents that you can only find
+loggin’ away in the woods, and
+fused it into a balm to
+keep your brawn alive and your beard looking its best.
+
+</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px">It’s no wonder why a
+man that runs his life the 
+way he runs the field
+is one to be reckoned with.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Workin' Man</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+
+Jimbob’s Bearwax&trade; 
+(a masterful blend of pure beeswax, coconut oil,
+shea butter, jojoba oil, baobab oil, &amp; argan oil), cedar oil,
+peppermint oil, pine oil, tea tree oil, lemon oil, and patchouli oil.</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/2product2.jpg" data-name="Workin' Man" item_name="Workin' Man" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+            
+            <!-- PRODUCT MODAL 4-->
+
+			<div class="modal fade product-modal" id="2product-04" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/2product5.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product5.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product5.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product5.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">The lighter side of manliness.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">They say that the early bird
+gets the worm, but what about
+the bird that thrives while the
+‘early bird’ sleeps?
+
+We know what it’s like to
+run the night like it were
+day. That’s why we made
+this specific blend tailored
+to the bird of the dark.
+It’s formulated for the same
+quality care, but also
+scented to relax in case
+you turn in early.
+
+</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px"> Run your hours whenever
+you like, just make sure
+to do it right.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Night Hawk</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+Jimbob’s Bearwax&trade; 
+(a masterful blend of pure beeswax, coconut oil,
+shea butter, jojoba oil, baobab oil, &amp; argan oil),
+lavender oil, sandalwood oil, tea tree oil, lemon
+oil, and patchouli oil.</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/2product5.jpg" data-name="Night Hawk" item_name="Night Hawk" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+            
+            <!-- PRODUCT MODAL 5-->
+
+			<div class="modal fade product-modal" id="2product-05" role="dialog" tabindex="-1">
+				<div class="modal-dialog">
+					
+					<!-- MODAL CONTENT -->
+					<div class="modal-content shadow">
+						<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+						<div class="modal-body">
+							<!-- Wrapper for slides -->
+							<div class="carousel slide product-slide" id="product-carousel">
+								<!-- CAROSUEL SLIDER -->
+								<div class="carousel-inner cont-slider">
+									<div class="item active"> <img alt="" src="_include/img/2product3.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product3.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product3.jpg" title=""> </div>
+									<div class="item"> <img alt="" src="_include/img/2product3.jpg" title=""> </div>
+								</div>
+								<!-- / CAROSUEL SLIDER -->
+
+
+							<!-- PRODUCT DESCRIPTION -->
+								<div class="row">
+									<div class="col-md-8 col-md-push-2 product-description">
+										<h4 class="section-heading">Keep your style under the radar.</h4>
+
+										<p style="text-align: center; padding-right: 10px; padding-left: 10px">The reconnaissance scout 
+in the field has to be well-practiced and precise in his movements. No matter the path he chooses, swift, silent, and deadly must be his only concentration.
+
+With precision and stealth in mind, we supercharged our dangerously quiet ensemble of oils and melded 'em into a balm to make sure that you leave no scent in your wake.
+
+</p>
+
+<h3 style="text-align: center; padding-right: 10px; padding-left: 10px">After all, they say that
+the quietest man in the room
+is often the most lethal.</h3>
+
+										<div class="row">
+											
+											<div class="container">
+								<div class="row">
+									<div class="col-md-8 col-md-push-2">
+										<div class="row">
+											<div class="col-md-12 product-modal-header">
+												<h3 class="pull-left product-modal-title">Recon Scout</h3>
+                                                
+                                                <br>
+                                                
+                                                <p style="text-align: center; padding-right: 10%; padding-left: 10%"><span style="font-size:130%; font-style:italic">INGREDIENTS:</span> <br>
+Jimbob’s Bearwax&trade; 
+(a masterful blend of pure beeswax, coconut oil,
+shea butter, jojoba oil, baobab oil, &amp; argan oil).</p> <br>
+										
+												<span class="product-action-section">
+													<span class="price">$15.00</span>
+													<button type="button" class="btn btn-default add-item" data-image="_include/img/2product3.jpg" data-name="Recon Scout" item_name="Recon Scout" data-cost="15.00" data-id="8">
+													<span class="ti-shopping-cart"></span>add to cart </button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- / PRODUCT DESCRIPTION -->
+						</div>
+					</div>
+					<!-- / MODAL CONTENT -->
+				</div>
+			</div>
+		</div>
+    </div>
+            
+            
+	</section>
+
+	<section id="contact" class="parallax-footer contact contact-with-map">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-heading" >No-Pressure Trials</h3>
+                    <h2 class="product-list-name" style="text-align: center; margin-bottom: 25px;">Not exactly sure what scent would suit your grizzle? </h2> <h3 class="product-list-name" style="text-align: center; margin-bottom: 25px; font-family: 'mount'">Contact us below to sample one of our balms and oils. Just cover shipping, and we'll cover the rest.</h3>
+				</div>
+				<div class="col-md-12">
+					
+					<!-- CONTACT FORM -->
+					<div class="contact-form">
+    <form action="https://formspree.io/jimbobsgrizzlybeardcare@gmail.com" method="POST">
+    <input type="text"  style="padding:10px; width:100%; color:black; border-radius: 5px; margin-bottom: 5px; border: 1px solid #C6A668;" placeholder="Name" name="Name" required>
+    <input type="email" style="padding:10px; width:100%; color:black; border-radius: 5px; border: 1px solid #C6A668; margin-bottom:5px" placeholder="Email" name="_replyto" required>
+    <input type="text"  style="padding:10px; width:100%; color:black; border-radius: 5px; border: 1px solid #C6A668;" placeholder="Desired Sample Scent" name="Scent" required><br>
+    <input type="submit" value="Send" style="vertical-align:middle;" class="btn btn-lg btn-primary">
+</form>
+                    </div>
+					<!-- / CONTACT FORM -->
+				</div>
+			</div>
+		</div>
+		
+	</section>
+
+	<div class="section section-min">
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+                            
+                            <div class="col-md-4 col-md-push-4 text-center"> <a href="#home"><img class="footer-logo" src="_include/img/JGBC-Half-Mark.png" alt="footer-logo"></a>
+                                <h3 style="text-align: center; color: #fff">Follow us online!</h3>
+								<div class="social">
+									<ul>
+										<li><a href="http://facebook.com/jimbobsgrizzlybeardcare/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        </li>
+										<li><a href="https://instagram.com/jimbobsgrizzlybeardcare/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="https://medium.com/@jamesjimbobbeaubien" target="_blank"><i class="fa fa-medium"></i></a></li>
+                                    </ul>
+								</div>
+							</div>
+						</div>
+					</div>
+                            <h4 style="text-align: center; color: #bbb">&copy; 2017 Jimbob's Grizzly Beard Care</h4></div>
+						</div>
+                
+		</footer>
+	</div>
+	<script src="_include/js/vendor/wow.js"></script>
+	<script src="_include/js/vendor/jquery-1.11.2.min.js"></script>
+	<script src="_include/js/vendor/swiper.min.js"></script>
+	<script src="_include/js/vendor/bootstrap.min.js"></script>
+	<script src="_include/js/vendor/jquery.countTo.js"></script>
+	<script src="_include/js/vendor/jquery.inview.js"></script>
+	<script src="_include/js/vendor/jquery.countdown.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_6m6Glf1-P7jvVdHZ00e3Ue_EoUNe39g"></script>
+    <script src="_include/js/main.js"></script>
+	<script src="_include/js/tt-cart.js"></script>
+    <script src="_include/js/instafeed.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
+
+</body>
+</html>
