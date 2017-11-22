@@ -2968,7 +2968,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
   .btn-default:hover {
     color: #C6A668;
     background-color: rgba(230, 230, 230, 0);
-    border-color: #af8a42; }
+    border-color: #af8a42; 
+    opacity: .7}
   .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
     color: #C6A668;
     background-color: rgba(230, 230, 230, 0);
@@ -3231,23 +3232,25 @@ tbody.collapse.in {
   position: absolute;
   top: 100%;
   left: 0;
+  right: 0;
   z-index: 1000;
   display: none;
   float: left;
   min-width: 160px;
   padding: 5px 0;
-  margin: 2px 0 0;
+  margin: 0 0;
   list-style: none;
   font-size: 15px;
-  text-align: left;
+  text-align: center;
+  vertical-align: middle;
   background-color: #262626;
   border: 1px solid #aaa;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  background-clip: padding-box; }
-  .dropdown-menu.pull-right {
+    background-clip: padding-box; }
+.dropdown-menu.pull-right {
     right: 0;
     left: auto; }
   .dropdown-menu .divider {

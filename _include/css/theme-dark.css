@@ -3881,7 +3881,7 @@ ul, li {
 p {
   font-size: 16px; }
 
-a, .btn {
+a, .btn, .add-item {
   transition: all 100ms ease-in-out; }
   a:hover, .btn:hover {
     opacity: 0.6; }

@@ -50,8 +50,8 @@ $('#about-counter').bind('inview', function(event, visible, visiblePartX, visibl
 // cart widget toggle
 $(function () {
     "use strict";
-    $("#items-counter").click(function() {
-        $("body").toggleClass("cart-widget-open");
+    $("#items-counter").click(function() {  window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_cart&display=1&business=jimbobsgrizzlybeardcare@gmail.com');
+;
     });
     $("#cart-widget-close").click(function() {
         $("body").toggleClass("cart-widget-open");
