@@ -74,8 +74,11 @@ template {
 }
 
 @media screen and (max-width: 767px) {
-    .parallax-footer, .parallax-mid {
+    .parallax-footer, .parallax-mid, .parallax-head {
         background-position: center;
+        background-size: cover;
+        height: 100%;
+        
     }
 }
 
