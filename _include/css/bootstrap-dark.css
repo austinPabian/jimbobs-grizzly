@@ -47,9 +47,9 @@ template {
     background-image: url(../img/header-bg.png);
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-size: 100% auto;
-    width: 100%;
-    background-size: cover;
+    background-size: 100% auto;  
+    max-width: 100%;
+    background-size:cover;
     background-attachment: fixed;
 }
 
@@ -57,9 +57,9 @@ template {
     background-image: url(../img/footer-bg.png);
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-size: 100% auto;
-    width: 100%;
-    background-size: cover;
+    background-size: 100% auto;  
+    max-width: 100%;
+    background-size:cover;
     background-attachment: fixed;
 }
 
@@ -68,8 +68,8 @@ template {
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    width: 100%;
-    background-size: cover;
+    max-width: 100%;
+    background-size:cover;
     background-attachment: fixed;
 }
 
