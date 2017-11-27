@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "webpack"
+    "build": "concurrently --prefix command \"webpack\" \"gulp build\"",
+    "start": "concurrently --prefix command \"webpack --watch\" \"gulp watch\" \"http-server ./dist --gzip --silent\""
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
@@ -13,6 +14,14 @@
     "eslint-config-profiscience": "^2.0.4",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
+    "gulp": "^3.9.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-image": "^4.1.0",
+    "gulp-mustache": "^3.0.0",
+    "gulp-remember": "^0.3.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-watch": "^4.3.11",
     "node-sass": "^4.7.2",
     "resolve-url-loader": "^2.2.0",
     "sass-loader": "^6.0.6",

@@ -6,18 +6,27 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const src = path.resolve(__dirname, 'src')
 const dist = path.resolve(__dirname, 'dist')
 
-const extractStyles = new ExtractTextPlugin({
-   filename: '[name].css',
-  //  disable: process.env.NODE_ENV === "development"
-})
+const extractStyles = new ExtractTextPlugin({ filename: '[name].css' })
 
-module.exports = {
+const scriptsConfig = {
   entry: {
-    scripts: path.resolve(src, 'js/index.js'),
+    scripts: path.resolve(src, 'js/index.js')
+  },
+  output: {
+    path: dist,
+    filename: '[name].js'
+  },
+  externals: {
+    'jquery': 'jQuery'
+  }
+}
+
+const stylesConfig = {
+  entry: {
     styles: path.resolve(src, 'scss/index.scss')
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: dist,
     filename: '[name].js'
   },
   module: {
@@ -35,7 +44,7 @@ module.exports = {
         })
       },
       {
-        test: /\.(woff|ttf|eot)$/,
+        test: /\.(woff|ttf|eot|svg|png)$/,
         use: [
           {
             loader: 'file-loader',
@@ -46,25 +55,6 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              hash: 'md5',
-              digest: 'hex',
-              name: '[name].[ext]'
-            }
-          },
-          // {
-          //   loader: 'image-webpack-loader',
-          //   options: {
-          //     bypassOnDebug: true
-          //   }
-          // }
-        ]
       }
     ]
   },
@@ -72,3 +62,8 @@ module.exports = {
     extractStyles
   ]
 }
+
+module.exports = [
+  scriptsConfig,
+  stylesConfig
+]

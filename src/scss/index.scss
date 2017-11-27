@@ -1,2 +1,15 @@
-// @import '../../vendor/css/bootstrap-dark';
+/**
+ * There is some subtlety here that is important. If the `.css` file extension is omitted,
+ * the file will be parsed as SCSS, and not CSS. A quirk of SCSS is that when you import
+ * SCSS that contains `url()` calls (backgrounds, fonts, etc), those paths are resolved
+ * relative to the *importing* file. However, relative paths in imported CSS files are
+ * resolved relative to the imported file, which is what is typically expected.
+ *
+ * While you should refrain from modifying files in the vendor dir, commenting out sections
+ * is fair game. You should do this for example if the vendored stylesheet includes its own
+ * images and references them via `url()`, but you use your own images and and overriding
+ * rule in your own styles.
+ */
+
+@import '../../vendor/css/bootstrap-dark.css';
 @import '../../vendor/css/theme-dark.css';
